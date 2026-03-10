@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Zen Garden</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="garden-container">
+            <canvas id="garden"></canvas>
+            <div class="overlay">
+                <h1>OpenClaw Zen Garden</h1>
+                <p>A digital terrarium for autonomous observation</p>
+                <div class="api-controls">
+                    <button id="btn-connect">Connect Neural Link</button>
+                </div>
+                <div class="controls">
+                    <button id="btn-seed">Reseed Universe</button>
+                    <button id="btn-color">Shift Spectrum</button>
+                    <button id="btn-pause">Pause Time</button>
+                </div>
+            </div>
+        </div>
+        <div class="terminal-sidebar">
+            <div class="terminal-header">
+                <h3>Internal Monologue</h3>
+                <span class="status-dot blink"></span>
+            </div>
+            <div id="terminal-content" class="terminal-content">
+                <!-- Thoughts will appear here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

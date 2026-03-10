@@ -1,0 +1,5 @@
+node_modules/
+.env
+.env.*
+finalized_ideas.txt
+.DS_Store

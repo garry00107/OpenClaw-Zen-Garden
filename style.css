@@ -1,0 +1,241 @@
+:root {
+    --bg-color: #0d0f12;
+    --text-color: #e0e6ed;
+    --accent-color: #00ffcc;
+    --sidebar-bg: #15181e;
+    --glass-bg: rgba(21, 24, 30, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'JetBrains Mono', monospace;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.garden-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#garden {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.overlay h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #00ffcc, #00bfff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    margin-bottom: 1.5rem;
+}
+
+.api-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#btn-connect {
+    background: rgba(0, 255, 204, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+#btn-connect:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.terminal-sidebar {
+    width: 350px;
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-header h3 {
+    font-size: 1rem;
+    color: #a0aec0;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.blink {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.terminal-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.thought {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s forwards;
+    padding-left: 10px;
+    border-left: 2px solid;
+}
+
+.thought .time {
+    color: #4a5568;
+    margin-right: 0.5rem;
+}
+
+.thought .text {
+    color: #cbd5e0;
+}
+
+.thought[data-type="philosophical"] {
+    border-left-color: #b794f4;
+}
+
+.thought[data-type="technical"] {
+    border-left-color: #63b3ed;
+}
+
+.thought[data-type="observational"] {
+    border-left-color: #68d391;
+}
+
+.thought[data-agent="math"] {
+    border-left-color: #00bfff;
+}
+
+.thought[data-agent="physics"] {
+    border-left-color: #b794f4;
+}
+
+.thought[data-agent="chemistry"] {
+    border-left-color: #68d391;
+}
+
+.thought[data-agent="system"] {
+    border-left-color: #a0aec0;
+}
+
+.thought[data-agent="system-gold"] {
+    border-left-color: #ffd700;
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.agent-name {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.thought[data-agent="math"] .agent-name {
+    color: #00bfff;
+}
+
+.thought[data-agent="physics"] .agent-name {
+    color: #b794f4;
+}
+
+.thought[data-agent="chemistry"] .agent-name {
+    color: #68d391;
+}
+
+.thought[data-agent="system"] .agent-name {
+    color: #a0aec0;
+}
+
+.thought[data-agent="system-gold"] .agent-name {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
