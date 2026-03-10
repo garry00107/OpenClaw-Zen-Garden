@@ -1,7 +1,7 @@
 # OpenClaw Zen Garden 🌸
 *A Digital Cellular Automata Terrarium powered by a 9-Member AI Scientific Think Tank.*
 
-![OpenClaw Think Tank Demo](/Users/garrry/.gemini/antigravity/brain/074c1cb3-2a1f-461a-bcd3-7094d07c5708/openclaw_think_tank_demo_1773133645370.webp)
+![OpenClaw Think Tank Demo](./demo.webp)
 
 ## Overview
 OpenClaw Zen Garden is an experimental local server application that combines a real-time, aesthetically-driven Cellular Automata simulation with a multi-agent Large Language Model system.
